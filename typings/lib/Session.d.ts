@@ -45,18 +45,18 @@ export declare class Session {
      * @returns An object where keys are URLs and values are objects containing cookies as key-value pairs.
      *
      * @example
-     *  {
-     *    "https://example.com/": {
-     *      "cookie1": "value1",
-     *      "cookie2": "value2"
-     *    },
-     *    "https://anotherdomain.com/": {
-     *      "cookieA": "valueA",
-     *      "cookieB": "valueB"
-     *    }
-     *  }
+      {
+         "https://example.com/": {
+           "cookie1": "value1",
+           "cookie2": "value2"
+         },
+         "https://anotherdomain.com/": {
+           "cookieA": "valueA",
+           "cookieB": "valueB"
+         }
+      }
      */
-    get cookies(): import("tough-cookie").Cookie.Serialized;
+    get cookies(): import("tough-cookie").SerializedCookie;
     /**
      * The 'close' method closes the current session.
      *

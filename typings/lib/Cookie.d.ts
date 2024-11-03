@@ -1,4 +1,4 @@
-import { CookieJar } from "tough-cookie";
+import { CookieJar, SerializedCookie } from "tough-cookie";
 /**
  * Cookies class extends the CookieJar class from the "tough-cookie" library.
  * It provides methods to manage cookies for a specific URL.
@@ -29,7 +29,7 @@ export declare class Cookies extends CookieJar {
      *    }
      *  }
      */
-    fetchAllCookies(): import("tough-cookie").Cookie.Serialized;
+    fetchAllCookies(): SerializedCookie;
     /**
      * Fetches the cookies for a given URL as an object.
      *

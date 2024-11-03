@@ -1,4 +1,4 @@
-import { CookieJar } from "tough-cookie";
+import { CookieJar, SerializedCookie } from "tough-cookie";
 
 /**
  * Cookies class extends the CookieJar class from the "tough-cookie" library.
@@ -34,14 +34,14 @@ export class Cookies extends CookieJar {
    *  }
    */
   public fetchAllCookies() {
-    const cookies = this.serializeSync().cookies;
+    const cookies = this.serializeSync()!.cookies;
 
     return cookies.reduce((acc, cookie) => {
       const url = `https://${cookie.domain}${cookie.path}`;
       if (!acc[url]) {
         acc[url] = {};
       }
-      acc[url][cookie.key] = cookie.value;
+      (acc[url] as SerializedCookie)[cookie.key as string] = cookie.value;
       return acc;
     }, {});
   }
