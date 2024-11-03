@@ -9,6 +9,7 @@ const fs_1 = __importDefault(require("fs"));
 const os_1 = __importDefault(require("os"));
 const koffi_1 = require("koffi");
 const download_1 = require("./download");
+const logger_1 = require("./logger");
 async function load() {
     const file = fileInfo();
     const temp = os_1.default.tmpdir();
@@ -17,6 +18,7 @@ async function load() {
         const downloader = new download_1.Download(file, libraryPath);
         await downloader.init();
     }
+    logger_1.logger.debug(`Koffi load: ${libraryPath}`);
     const lib = (0, koffi_1.load)(libraryPath);
     return {
         request: lib.func("request", "string", ["string"]),

@@ -40,6 +40,10 @@ export class Response {
     return this.response.body.toString();
   }
 
+  public async body(): Promise<string> {
+    return this.response.body;
+  }
+
   /**
    * Returns the body of the response as a JSON object.
    *

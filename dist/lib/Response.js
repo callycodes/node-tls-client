@@ -36,6 +36,9 @@ class Response {
     async text() {
         return this.response.body.toString();
     }
+    async body() {
+        return this.response.body;
+    }
     /**
      * Returns the body of the response as a JSON object.
      *

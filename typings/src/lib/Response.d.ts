@@ -24,6 +24,7 @@ export declare class Response {
      * @returns A promise that resolves with the body of the response as a string.
      */
     text(): Promise<string>;
+    body(): Promise<any>;
     /**
      * Returns the body of the response as a JSON object.
      *
