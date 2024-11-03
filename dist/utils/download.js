@@ -68,9 +68,14 @@ class Download {
         const percentage = (downloaded / total) * 100;
         const progress = Math.floor(percentage / 2);
         const bar = "█".repeat(progress) + " ".repeat(50 - progress);
-        process.stdout.clearLine(0);
-        process.stdout.cursorTo(0);
-        process.stdout.write(`${logger_1.logger.stamp} DOWNLOADING:[${bar}] ${percentage.toFixed(2)}% (${this.formatBytes(downloaded)} / ${this.formatBytes(total)})`);
+        if (process.stdout.isTTY) {
+            process.stdout.clearLine(0);
+            process.stdout.cursorTo(0);
+            process.stdout.write(`${logger_1.logger.stamp} DOWNLOADING:[${bar}] ${percentage.toFixed(2)}% (${this.formatBytes(downloaded)} / ${this.formatBytes(total)})`);
+        }
+        else {
+            logger_1.logger.debug(`Dowloaded ${total}`);
+        }
     }
     async download(url, file) {
         return new Promise((resolve, reject) => {
