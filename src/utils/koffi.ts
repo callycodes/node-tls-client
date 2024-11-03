@@ -4,6 +4,7 @@ import { koffiLoad } from "../interface/koffi";
 import os from "os";
 import { load as koffi } from "koffi";
 import { Download } from "./download";
+import { logger } from "./logger";
 
 export async function load(): Promise<koffiLoad> {
   const file = fileInfo();
@@ -15,6 +16,7 @@ export async function load(): Promise<koffiLoad> {
     await downloader.init();
   }
 
+  logger.debug(`Koffi load: ${libraryPath}`)
   const lib = koffi(libraryPath);
 
   return {
