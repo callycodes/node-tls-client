@@ -5,6 +5,7 @@ const crypto_1 = require("crypto");
 const _1 = require(".");
 const koffi_1 = require("../utils/koffi");
 const request_1 = require("../utils/request");
+const logger_1 = require("../utils/logger");
 // Version of the current session.
 const __version__ = "1";
 /**
@@ -291,6 +292,7 @@ class Session {
             disableIPV6: this.disableIPV6,
             disableIPV4: this.disableIPV4,
         };
+        logger_1.logger.debug(`Skeleton payload: ${JSON.stringify(skeletonPayload)}`);
         if (this.clientIdentifier) {
             skeletonPayload["tlsClientIdentifier"] = this.clientIdentifier;
         }
