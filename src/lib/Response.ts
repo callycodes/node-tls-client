@@ -40,7 +40,7 @@ export class Response {
     return this.response.body.toString();
   }
 
-  public async body(): Promise<string> {
+  public async body(): Promise<any> {
     return this.response.body;
   }
 

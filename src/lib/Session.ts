@@ -26,6 +26,7 @@ import { OutgoingHttpHeaders } from "http";
 import { Cookies, Response } from ".";
 import { load } from "../utils/koffi";
 import { isByteRequest } from "../utils/request";
+import { logger } from "../utils/logger";
 
 // Version of the current session.
 const __version__ = "1";
@@ -332,6 +333,8 @@ export class Session {
       disableIPV6: this.disableIPV6,
       disableIPV4: this.disableIPV4,
     };
+
+    logger.debug(`Skeleton payload: ${JSON.stringify(skeletonPayload)}`)
 
     if (this.clientIdentifier) {
       skeletonPayload["tlsClientIdentifier"] = this.clientIdentifier;
