@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Response = void 0;
+const logger_1 = require("../utils/logger");
 /**
  * Response class represents the HTTP response received from a server.
  * It provides methods to access various properties of the response.
@@ -37,6 +38,7 @@ class Response {
         return this.response.body.toString();
     }
     async body() {
+        logger_1.logger.debug(`Response body: ${this.response.body}`);
         return this.response.body;
     }
     /**

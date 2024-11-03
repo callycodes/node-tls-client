@@ -1,5 +1,6 @@
 import { TlsResponse } from "../interface";
 import { IncomingHttpHeaders } from "http";
+import { logger } from "../utils/logger";
 
 /**
  * Response class represents the HTTP response received from a server.
@@ -41,6 +42,7 @@ export class Response {
   }
 
   public async body(): Promise<any> {
+    logger.debug(`Response body: ${this.response.body}`);
     return this.response.body;
   }
 
