@@ -334,8 +334,6 @@ export class Session {
       disableIPV4: this.disableIPV4,
     };
 
-    logger.debug(`Skeleton payload: ${JSON.stringify(skeletonPayload)}`)
-
     if (this.clientIdentifier) {
       skeletonPayload["tlsClientIdentifier"] = this.clientIdentifier;
     } else if (this.ja3string) {

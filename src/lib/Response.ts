@@ -42,7 +42,6 @@ export class Response {
   }
 
   public async body(): Promise<any> {
-    logger.debug(`Response body: ${this.response.body}`);
     return this.response.body;
   }
 
