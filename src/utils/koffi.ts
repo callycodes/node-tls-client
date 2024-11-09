@@ -16,7 +16,6 @@ export async function load(): Promise<koffiLoad> {
     await downloader.init();
   }
 
-  logger.debug(`Koffi load: ${libraryPath}`)
   const lib = koffi(libraryPath);
 
   return {
